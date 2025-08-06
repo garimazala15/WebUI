@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio vedio file</title>
+</head>
+<body>
+
+    <!--include audio on broswer-->
+    <h2>Embedded audio</h2>
+    <audio controls muted aria-label="Hello audio is not streamed">
+    <source src="audio.mp3" type="audio/mp3">
+    your browser dosen't support audio tag.
+    </audio>
+
+    <!--include video on browser-->
+
+    <h2>Embedded video</h2>
+    <video height="360" width="640" controls muted aria-label="Hello video not streamed">
+        <source src="video.mp4" type="video/mp4">
+        your browser dosen't support video tag.
+    </video> <br><br>
+
+    <!--iframe to open another website in your site-->
+    <iframe  width="560" height="315" src="https://codebetter.in/" frameborder="5"></iframe>
+</body>
+</html>

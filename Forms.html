@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms in html</title>
+</head>
+<body>
+    <form nam="Registration form" action="mailto:garima1582000@gmail.com" method="post">
+    <!--fieldset is used to create a block in form which has boundaries and and name -->
+    <fieldset>
+        <legend>Personal Infromation</legend> <!--name of block-->
+        <label>Registration Date</label>
+        <input type="date" > <br> <br>
+        <label>Enter your First name </label>
+        <input type="text" placeholder="Enter your first name" size="20" maxlength="30"> <br> <br>
+        <label>Enter your Last name </label>
+        <input type="text" placeholder="Enter your last name" size="20" maxlength="30"> <br> <br>
+    </fieldset><br><br><br>
+
+    <label>"Enter your email id "</label>
+    <input type="email" placeholder="enter your email" maxlength="50"><br><br>
+
+    <label>"Enter your password "</label>
+    <input type="password" placeholder="enter your password" ><br><br>
+
+    <label>Enter your Adress </label><br>
+    <textarea rows="3" cols="50" placeholder="enter your address"></textarea><br><br>
+
+    <label>Select date of birth and time</label>
+    <input type="datetime-local"><br><br>
+    <!--radio button are used when only one from all the options can be selected they must have same name and diff values-->
+    <label>Select gender :</label>
+    male <input type="radio" name="gender" value="male">
+    female <input type="radio" name="gender" value="female">
+    others <input type="radio" name="gender" value="others" checked> <br><br>
+    <!--checkbox is used more than one value can be selected from options they all must have diff names-->    
+    <label>Select hobbies :</label>
+    Dance <input type="checkbox" name="h1" checked>
+    Reading <input type="checkbox" name="h2">
+    Cricket <input type="checkbox" name="h3"> <br><br>
+
+    <label>Select color:</label>
+    <input type="color"><br><br>
+    <!--used to select file from your system and upload on browser-->
+    <label>Select in your phone (in jpg/pdf/png)</label>
+    <input type="file"><br><br>
+    <!--create search bar-->
+    <label>Search</label>
+    <input type="search"><br><br>
+    <!--create drop down menu-->
+    <label>Select your qualification</label>
+    <select multiple size="5">  <!--multiple size to select more then one value from dropdown menu in list form-->
+        <option>10TH</option>
+        <option>12TH</option>
+        <option>Graduate</option>
+        <option>Post Graduate</option>
+        <option>p.hd</option>
+    </select><br><br>
+    <!--used to create a progress bar-->
+    <input type="range" min="10" max="100"><br><br>
+    <!--submit button to submit form -->
+    <input type="submit" value="checked"><br><br>
+    <!--reset to clear the form data or reset form-->
+    <input type="reset" value="clear it"><br><br>
+    <!--here we can provide our own logic using javascript-->
+    <input type="button" value="sign-In">
+    </form>
+</body>
+</html>
