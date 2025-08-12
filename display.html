@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Display Property</title>
+<style>
+    .left img {
+        height: 90px;
+        width: 90px;
+        cursor: pointer;
+    }
+
+    .right {
+        display: none;
+        width: 200px;
+        height: 360px;
+        position: fixed;
+        left: 220px;
+        top: 100px;
+    }
+
+    .right img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .right p {
+        background-color: red;
+        color: white;
+        text-align: center;
+        padding: 10px;
+    }
+
+    /* Only show when image is hovered */
+    .first-dropdown img:hover + .right,
+    .second-dropdown img:hover + .right,
+    .third-dropdown img:hover + .right,
+    .forth-dropdown img:hover + .right {
+        display: inline-block;
+    }
+</style>
+</head>
+<body>
+
+<h2><b>Dropdown Image</b></h2>
+<p>Move the mouse over any image in the left panel to show the big image on the right.</p>
+
+<div class="left">
+
+    <div class="first-dropdown">
+        <img src="Images/face.jpg">
+        <div class="right">
+            <img src="Images/face.jpg">
+            <p>Beautiful Cinque Terre</p>
+        </div>
+    </div>
+
+    <div class="second-dropdown">
+        <img src="Images/face.jpg">
+        <div class="right">
+            <img src="Images/face.jpg">
+            <p>Beautiful Cinque Terre</p>
+        </div>
+    </div>
+
+    <div class="third-dropdown">
+        <img src="Images/face.jpg">
+        <div class="right">
+            <img src="Images/face.jpg">
+            <p>Beautiful Cinque Terre</p>
+        </div>
+    </div>
+
+    <div class="forth-dropdown">
+        <img src="Images/face.jpg">
+        <div class="right">
+            <img src="Images/face.jpg">
+            <p>Beautiful Cinque Terre</p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Internal CSS</title>
+  <style>
+
+  .first {
+      width: 60%;
+      margin: auto;
+      box-sizing: border-box;
+      text-align:left;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 700px;
+    }
+
+    h2.heading {
+      margin-bottom: 20px;
+    }
+
+    /* Make inner boxes appear in a row */
+    .first > div {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      width: 100%;
+    }
+
+    #fdiv, #sdiv, #tdiv {
+      width: 33.33%;
+      color: white;
+      padding: 10px;
+      box-sizing: border-box;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+    }
+
+    #fdiv {
+      background-color: blueviolet;
+    }
+
+    #sdiv {
+      background-color: gray;
+    }
+
+    #tdiv {
+      background-color: blueviolet;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="first">
+            <h2 class="heading">What a Software Developer, Software Engineer and Web Designer Do?</h2>
+
+    <div>
+      <div id="fdiv">
+        <h2>Software Developer</h2>
+        <p>A Software Developer is primarily responsible for building software applications using programming languages like 
+            Java, Python, or C#. They focus on writing clean and efficient code to develop applications for desktop, web, or 
+            mobile platforms.</p>
+
+        <h3>Software Developer</h3>
+        <p>A Software Developer is primarily responsible for building software applications using programming languages like 
+            Java, Python, or C#. They focus on writing clean and efficient code to develop applications for desktop, web, or 
+            mobile platforms.</p>
+      </div>
+
+      <div id="sdiv">
+        <h2>Software Engineer</h2>
+        <p>A Software Engineer, while similar to a developer, applies more structured engineering principles to the software 
+            development process. They focus on designing scalable, efficient, and reliable systems. Software engineers are 
+            typically involved in system architecture.</p>
+
+        <h3>Software Engineer</h3>
+        <p>A Software Engineer, while similar to a developer, applies more structured engineering principles to the software 
+            development process. They focus on designing scalable, efficient, and reliable systems. Software engineers are 
+            typically involved in system architecture.</p>
+      </div>
+
+      <div id="tdiv">
+        <h2>Web Designer</h2>
+        <p>A Web Designer focuses on the visual and user experience aspects of websites and web applications. Their job is to 
+            create aesthetically pleasing and user-friendly interfaces using tools like Figma, Adobe XD, or Photoshop.</p>
+
+        <h3>Web Designer</h3>
+        <p>A Web Designer focuses on the visual and user experience aspects of websites and web applications. Their job is to 
+            create aesthetically pleasing and user-friendly interfaces using tools like Figma, Adobe XD, or Photoshop.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
