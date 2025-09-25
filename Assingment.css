@@ -6,7 +6,7 @@
 
 .nav{
     display: flex;
-    background: linear-gradient(45deg, #f5c7f7, #c9a7eb); /* ✅ use background */
+    background: linear-gradient(45deg, #f5c7f7, #c9a7eb); 
     color: #424874;
     height: 80px;
     align-items: center;
