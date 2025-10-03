@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Footer</title>
+<link rel="stylesheet" type="text/css" media="screen" href="Css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+<style>
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    width: 100%;
+    background-image: url('Images/footer-bg.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.footer-top .logo-col img {
+    max-width: 180px;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+.footer-links{
+    padding-top: 80px;
+}
+
+.footer-links .custom-col {
+    font-family: "open sans", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    color: white;
+    margin: 0;
+}
+
+.footer-links .custom-col a {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    padding-bottom: 3px;
+}
+
+.footer-links .custom-col a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #e63946;
+    transition: width 0.4s ease;
+}
+
+.footer-links .custom-col a:hover::after {
+    width: 100%;
+}
+
+.custom-col-second ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+    display: flex;
+    gap: 15px;
+}
+
+.custom-col-second-link{
+    padding-top: 40px;
+}
+ .custom-col-second ul { 
+        list-style: none; 
+        padding: 0; 
+        margin: 10px 0 0 0; 
+        display: flex; 
+        gap: 15px; 
+        justify-content:flex-start;
+        align-items: center;
+    } 
+
+    .custom-col-second ul li a { 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        width:40px; 
+        height:40px; 
+        background-color: white; 
+        border-radius: 50%; 
+        text-decoration: none; 
+        font-size: 18px; 
+    } 
+    .custom-col-second ul li a i {
+    color:grey;
+    padding-top:10px;
+    padding-left:10px;
+    }
+    
+   footer .copyright {
+    font-size: 13px;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+}
+</style>
+</head>
+<body>
+<footer class="footer">
+
+    <div class="footer-top container">
+
+        <div class="row">
+            <div class="col-md-3 logo-col d-flex align-items-start">
+                <img src="Images/footer-logo.webp" alt="Logo">
+            </div>
+
+            <div class="col-md-9">
+                <div class="row footer-links">
+                    <div class="col-md-3 col-sm-6 custom-col custom-col-second">
+                        <p><strong>Quick Links</strong></p>
+                        <p><a href="#">Explore Destinations</a></p>
+                        <p><a href="#">Adventure</a></p>
+                        <p><a href="#">Culture</a></p>
+                        <p><a href="#">Festivals and Events</a></p>
+                        <p><a href="#">Travel Agents and Tour Guides</a></p>
+                        <p><a href="#">Gaatha-Crafts of Madhya Pradesh</a></p>
+                        <p><a href="#">Tourism.mp.gov.in</a></p>
+                        <p><a href="#">Mp Wellness Booklet</a></p>
+                        <p><a href="#">Discovering Madhya Pradesh</a></p>
+                        <p><a href="#">Newsletter: Offbeat Madhya Pradesh - Oct 2024</a></p>
+                        <p><a href="#">Newsletter: Offbeat Madhya Pradesh - Oct 2025</a></p>
+                        <p><a href="#">Tourism Policy 2025</a></p>
+                        <p><a href="#">Sitemap</a></p>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 custom-col custom-col-second-link">
+                        <p><a href="#">Accommodations</a></p>
+                        <p><a href="#">Itinerary</a></p>
+                        <p><a href="#">Film Tourism</a></p>
+                        <p><a href="#">MP Film Tourism Policy 2025</a></p>
+                        <p><a href="#">Rules and Regulation Booklet 2025</a></p>
+                        <p><a href="#">MP Film Tourism Promotional Brochure</a></p>
+                        <p><a href="#">MP Forest Details</a></p>
+                        <p><a href="#">MP Ecotourism Development Board</a></p>
+                        <p><a href="#">Blog</a></p>
+                        <p><a href="#">Tourist Map</a></p>
+                        <p><a href="#">Kala</a></p>
+                        <p><a href="#">Panchang in Hindi - 2025-26</a></p>
+                        <p><a href="#">Panchang in English - 2025-26</a></p>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 custom-col custom-col-second">
+                        <p><strong>Help & Support</strong></p>
+                        <p>1800-233-7777</p>
+                        <p>Monday to Friday (10:00 AM to 6:00 PM)</p>
+                        <p>Saturday & Holidays (10:00 AM to 2:00 PM)</p>
+                        <p>Sunday - Holiday</p>
+                        <p>Mail us: <br> suggestions.mptb@mp.gov.in</p>
+                        <p>Incredible India Tourist Infoline:<br>1800-11-1363 (24x7)<br>Languages: Hindi, English, French, German, Spanish, 
+                            Portuguese, Italian, Russian, Korean, Japanese, Chinese, Arabic</p>
+                        <ul>
+                        <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li> 
+                        <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li> 
+                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li> 
+                        <li><a href="#"><i class="fa-brands fa-square-youtube"></i></a></li> 
+                        <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li> 
+
+
+                        </ul>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 custom-col custom-col-second">
+                        <p><strong>Address</strong></p>
+                        <p>6th Floor, Lily Trade Wing,</p>
+                        <p>(Behind D Mart),</p>
+                        <p>Jehangirabad, Bhopal,</p>
+                        <p>Madhya Pradesh 462008</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p class="copyright mb-0">
+                    <i class="fa fa-copyright"></i>
+                    Copyright 2020 Madhya Pradesh Tourism.
+                    All Rights Reserved. | Disclaimer | Privacy Policy
+                </p>
+            </div>
+        </div>
+    </div>
+
+</footer>
+</body>
+</html>

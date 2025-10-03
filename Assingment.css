@@ -60,7 +60,7 @@
     height: 40px;
     border-radius: 50px;
     border: none;
-    background: linear-gradient(45deg, #f5c7f7, #c9a7eb); /* ✅ use background */
+    background: linear-gradient(45deg, #f5c7f7, #c9a7eb);
     color: #424874;
     font-weight: bold;
     transition: all 0.3s ease-in-out;
