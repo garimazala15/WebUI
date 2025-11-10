@@ -82,6 +82,48 @@ for(let i=0;i<=rem2.length-1;i++){
 
 console.log(smallestVar)
 
+//second largest in array
+
+let a = [100, 37, 85, 60, 45, 70, 80];
+
+let firstLargest=-Infinity
+let secondLargest=-Infinity
+
+for(let i=0;i<=a.length-1;i++){
+    if(a[i]>firstLargest){
+        secondLargest=firstLargest
+        firstLargest=a[i]
+    }
+    else if(a[i]<firstLargest && a[i]>secondLargest){
+        secondLargest=a[i]
+    }
+}
+
+console.log("First largest in array:",firstLargest)
+console.log("Second largest in array:",secondLargest)
+
+//second smallest
+
+
+let a2= [100, 37, 85, 60, 45, 70, 80];
+
+let firstSmallest=Infinity
+let secondSmallest=Infinity
+
+for(let i=0;i<=a.length-1;i++){
+    if(a[i]<firstSmallest){
+        secondSmallest=firstSmallest
+        firstSmallest=a[i]
+    }
+    else if(a[i]>firstSmallest && a[i]<secondSmallest){
+        secondSmallest=a[i]
+    }
+}
+
+console.log("First smallest in array:",firstSmallest)
+console.log("Second smallest in array:",secondSmallest)
+
+
 
 //ascending and descending order in array
 
@@ -89,8 +131,8 @@ console.log(smallestVar)
 let arr2=[34,67,899,32,567,24,4,56,8,65]
 let temp=null
 
-for(let i=0;i<arr2.length-1;i++){
-    for(let j=0;j<arr2.length-1;j++){
+for(let i=0;i<=arr2.length-1;i++){
+    for(let j=0;j<=arr2.length-1;j++){
         if(arr2[j]>arr2[j+1]){
             temp=arr2[j]
             arr2[j]=arr2[j+1]
@@ -106,8 +148,8 @@ console.log("Array in ascending order:",arr2)
 //descending 
 let arr3=[2,5,7,9,8,12,34,56,78]
 
-for(let i=0;i<arr3.length-1;i++){
-    for(let j=0;j<arr3.length-1;j++){
+for(let i=0;i<=arr3.length-1;i++){
+    for(let j=0;j<=arr3.length-1;j++){
         if(arr3[j]<arr3[j+1]){
             let temp=arr3[j]
             arr3[j]=arr3[j+1]
