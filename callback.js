@@ -1,4 +1,4 @@
-/*const delivery=(cName)=>{
+const delivery=(cName)=>{
     console.log(`it is your delivery Ms/Miss : ${cName}`)
 
 }
@@ -11,61 +11,73 @@ const signIn=(cName,delivery)=>{
 
 }
 
-const customer=(cName,signIn)=>{
+const custm=(cName,signIn)=>{
     console.log("enter your name:")
     console.log(`Welcome Ms/Miss: ${cName}`)
     signIn(cName,delivery)
 
 }
 
-customer("Garima",signIn)
+custm("Garima",signIn)
 
 console.log("             ")
 
-customer("code better",signIn)
+custm("code better",signIn)
 
+console.log("                          ")
+
+
+
+const menu={           //menu in js object  storing key value pair
+    "kachori":50,
+    "Samosa": 40,
+    "Chole Bhature": 120,
+    "Pav Bhaji": 90,
+    "Masala Dosa": 100,
+    "Coke":50
+
+}
 
 const chef=(order)=>{
-    return `your order is completed : ${order}`
-    return `your bill amount is ${price}`
+    return `your order ${order} is prepared and ready to serve!`
 
 }
 
-const waiter=(order,chef,billing)=>{
-    return chef(order)
-    return billing(78)
+const bill=(order)=>{
+    const price=menu[order]
+    if(!price)
+        return `sorry  ${order} not available in menu!`
 
+    return `your total bill for ${order} is ${price}`
 }
-const billing=(price)=>{
 
-    return waiter(billing,customer)
+const waiter=(order,chef,bill)=>{
+    if(!menu[order])
+        return `sorry, ${order} is not on today's menu!`
+    return `${chef(order)}\n${bill(order)}`
 
 }
 
 const customer=(order,waiter)=>{
-    return waiter(order,chef)
+    return waiter(order,chef,bill)
 }
 
-console.log(customer("Kachori",waiter))
+console.log(customer("Pav Bhaji",waiter))
 
-*/
+console.log("                          ")
 
-console.log("Engine started")
-setTimeout(()=>{
-    console.log("this is set time out called 1s",)
-},1000)
+console.log(customer("Samosa",waiter))
 
-setTimeout(()=>{
-    console.log("this is set time out called 3s",)
-},3000)
-setTimeout(()=>{
-    console.log("this is set time out called 5s",)
-},5000)
-setTimeout(()=>{
-    console.log("this is set time out called 10s",)
-},10000)
+console.log("                          ")
+
+console.log(customer("Coke",waiter))
+
+console.log("                          ")
+
+console.log(customer("frutie",waiter))
 
 
 
 
-console.log("Engine stopped")
+
+
