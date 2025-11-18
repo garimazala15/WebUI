@@ -62,13 +62,24 @@ a.name="abhay"
 
 console.log(data)
 
-let x={age:1}
+/*let x={age:1}
 let y={age:1}
+let z=y
 
 //comapred using address both are at different memory
 console.log(x==y)
 console.log(x===y)
 console.log(x!=y)
+*/
+
+let x={age:1}
+let y={age:1}
+let z=y
+
+//comapred using address both are at different memory
+console.log(y==z)
+console.log(y===z)
+console.log(y!=z)
 
 console.log("        ")
 
