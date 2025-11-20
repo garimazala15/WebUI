@@ -3,6 +3,7 @@
 //object store data in key value pair .key is always unique
 //we can obtain data from object using it's key 
 
+/*
 let  userDetails={
     name:"Garima",
     age:25,
@@ -70,7 +71,7 @@ let z=y
 console.log(x==y)
 console.log(x===y)
 console.log(x!=y)
-*/
+
 
 let x={age:1}
 let y={age:1}
@@ -84,12 +85,12 @@ console.log(y!=z)
 console.log("        ")
 
 let a1=[1,2,3,4,5,6]
-let b=[4,5,6,2,9,97]
+let b1=[4,5,6,2,9,97]
 
-console.log(a1==b)
-console.log(a1===b)
+console.log(a1==b1)
+console.log(a1===b1)
 console.log("         ")
-console.log(a1==b===true)
+console.log(a1==b1===true)
 
 
 let emp={
@@ -101,6 +102,115 @@ let emp={
 console.log(Object.keys(emp))
 console.log(Object.values(emp))
 console.log(Object.entries(emp))
+
+
+//this keyword
+
+//let name="Garima zala"
+
+let a={
+    name:"code better",
+    age:25,
+    info:()=>{
+        console.log(`Welcome ms/miss ${this.name}`)
+    }
+}
+
+
+
+let b={
+    name:"code better",
+    age:25,
+    info:function(){
+        console.log(`Welcome ms/miss ${this.name}`)
+    }
+}
+
+console.log(name)
+a.info()
+b.info()
+
+*/
+
+
+//object destructure
+
+let obj={
+    name:"garima",
+    age:25,
+    add:"indore"
+}
+
+const {name,age,add}=obj
+
+console.log(name,age,add)
+
+//nested object destructure
+let obje={
+    nm:"code better",
+    lname:"coching",
+    address:{
+        street:47,
+        area:"indore"
+    }
+}
+
+const {address}=obje
+
+console.log(address)
+
+const {street,area}=address
+
+console.log(street)
+console.log(area)
+
+
+let eleme={
+    lo:"indore",
+    role:{
+        modle:"all",
+        designation:"sotware developer"
+    }
+}
+
+const {lo ,role:{modle,designation}}=eleme
+
+console.log(lo)
+console.log(modle)
+console.log(designation)
+
+//looping on objects
+
+
+let your={
+    direct:true,
+    time:"anytime",
+    sucess:"asfdfg",
+    durability:"aFJTK"
+}
+
+for(let key in your){
+    console.log(`${key}:${your[key]}`)
+}
+
+//freeze key not full object
+
+let eassy={
+    ag:35467,
+    nation:"indian"
+}
+
+Object.defineProperty(eassy,"ag",{
+    writable:false
+})
+
+eassy.ag=25
+eassy.nation="uae"
+
+console.log(eassy)
+delete  eassy.ag
+console.log(eassy)
+
 
 
 
