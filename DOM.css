@@ -6,5 +6,5 @@
 
 #heading{
     display:flex;
-    text-align:centre;
+    justify-content:center;
 }
