@@ -1,0 +1,533 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ page import="java.sql.*" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+        body,html{
+            height: 100%;
+        }
+        body{
+            background-image: url("Images/background4.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+        .container{
+            min-height: 100%;
+            align-items: center;
+            justify-content:center;
+            margin-top: 50px;
+        }
+        .left img{
+            width: 350px;
+            height: 522px;
+            border-radius: 12px;
+        }
+        .right{
+            padding:5px 20px;
+            height: 525px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        .btn-primary {
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            border: none;
+            transition: 0.3s;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(45deg, #2575fc, #6a11cb);
+            transform: scale(1.05);
+        }
+        
+        small.error{
+        color:red;
+        display:none;
+        font-size:12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container d-flex">
+        <div class="left">
+            <img src="Images/musicbackdrop.jpg">
+        </div>
+
+        <div class="right bg-white">
+            <h2 class="mb-4">Registration Form</h2>
+
+            <form method="post" onSubmit="return validate()">
+
+                <div class="mb-4">
+                    <label class="form-label">Full Name:</label>
+                    <input type="text" id="fullname" name="fullname" class="form-control" required placeholder="ex: Lindsey Wilson">
+                    <small class="error" id="nameErr"></small>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">Your Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                    <small class="error" id="emailErr"></small>
+                    
+                </div>
+                
+                 <div class="mb-4">
+                    <label class="form-label">Your Username:</label>
+                    <input type="text" id="username" name="username" class="form-control" required>
+                    <small class="error" id="usernameErr"></small>
+                    
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">Password:</label>
+                    <input type="password" id="password" name="password" class="form-control" required>
+                    <small class="error" id="passErr"></small>
+                  
+                </div>
+
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" required>
+                    <label class="form-check-label">
+                        By signing up, you agree to the <a href="#">Play Terms of Services</a>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">
+                    Register
+                </button>
+
+                <div class="mt-3 text-center">
+                    <a href="Login.jsp">Already have an account? Login</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    
+    <script>
+    
+    function validate(){
+    	const nameRegex=/^[A-Za-z]{3,}$/;
+    	const emailRegex=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    	const usernameRegex=/^[A-Za-z0-9_]{4,}$/;
+    	const passwordRegex=/^.{6,}$/;
+    	
+    	
+    	let fullname=document.getElementByID("fullname").value.trim();
+    	let email=document.getElementByID("email").value.trim();
+    	let username=document.getElementByID("username").value.trim();
+    	let password=document.getElementByID("password").value.trim();
+
+    	
+    	let valid=true;
+    	
+    	if(!nameRegex.test(fullname)){
+    		document.getElementById("nameErr").innerHTML="Enter a valid name (min 3 letters)";
+    		document.getElementById("nameErr").style.display="block";
+    		valid=false;	
+    	}else
+    		document.getElementById("nameErr").style.display="none";
+    	
+    	
+    	if(!nameRegex.test(email)){
+    		document.getElementById("emailErr").innerHTML="Enter a valid email";
+    		document.getElementById("emailErr").style.display="block";
+    		valid=false;	
+    	}else
+    		document.getElementById("emailErr").style.display="none";
+    	
+    	
+    	if(!nameRegex.test(username)){
+    		document.getElementById("usernameErr").innerHTML="username must be at least 4 chars";
+    		document.getElementById("usernameErr").style.display="block";
+    		valid=false;	
+    	}else
+    		document.getElementById("usernameErr").style.display="none";
+    	
+    	
+    	if(!nameRegex.test(fullname)){
+    		document.getElementById("passwordErr").innerHTML="password must be at least 6 chars";
+    		document.getElementById("passwordErr").style.display="block";
+    		valid=false;	
+    	}else
+    		document.getElementById("passwordErr").style.display="none";
+ 
+    return valid;
+    
+    }   
+    </script>
+
+</body>
+</html>
+
+
+
+<%
+String fullname=request.getParameter("fullname");
+String email=request.getParameter("email");
+String username=request.getParameter("username");
+String password=request.getParameter("password");
+
+
+if(fullname!=null && email!=null && username!=null && password!=null){
+	try{
+	Class.forName("com.mysql.cj.jdbc.Driver");
+	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/regdb","root","root");
+	String sql="insert into reg (fullname,email,username,password) values(?,?,?,?)";
+	PreparedStatement ps=con.prepareStatement(sql);
+	ps.setString(1,fullname);
+	ps.setString(2,email);
+	ps.setString(3,username);
+	ps.setString(4,password);
+	
+	int x=ps.executeUpdate();
+	
+	if(x>0){
+		response.sendRedirect("Login.jsp");
+	}
+	else{
+		out.println("error in registration");
+	}
+	}catch(Exception e){
+		e.printStackTrace();
+	}
+}
+%>======================================
+
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <style>
+        body{
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url(Images/background2.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .form-container{
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
+            width: 350px;
+        }
+        .form-title{
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #007bff;
+        }
+        .form-control{
+            border: none;
+            border-bottom: 2px solid #00c6ff;
+            border-radius: 0;
+            box-shadow: none;
+        }
+        .form-control:focus{
+            border-color: #0072ff;
+            box-shadow: none;
+        }
+        .input-group-text{
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid #00c6ff;
+            border-radius: 0;
+        }
+        .btn-custom{
+            background: linear-gradient(to right,#00c6ff,#0072ff);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            padding: 10px;
+            width: 100%;
+        }
+        .btn-custom:hover{
+            opacity: 0.9;
+        }
+        .text-muted a{
+            color: #007bff;
+            font-weight: 500;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<%
+String username = request.getParameter("username");
+String password = request.getParameter("password");
+
+if(username != null && password != null){
+    try{
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/regdb","root","root");
+
+        PreparedStatement ps = con.prepareStatement(
+            "SELECT * FROM reg WHERE username=? AND password=?"
+        );
+        ps.setString(1, username);
+        ps.setString(2, password);
+
+        ResultSet rs = ps.executeQuery();
+
+        if(rs.next()){
+            session.setAttribute("username", username);
+            response.sendRedirect("Dashboard.jsp");
+            return;
+        } else {
+            request.setAttribute("error", "Invalid username or password!");
+        }
+
+    } catch(Exception e){
+        e.printStackTrace();
+    }
+}
+%>
+
+    <div class="form-container">
+        <div class="form-title">Login Form</div>
+
+        <!-- Error Message -->
+        <% if(request.getAttribute("error") != null){ %>
+            <div class="alert alert-danger"><%= request.getAttribute("error") %></div>
+        <% } %>
+
+        <form method="post">
+
+            <div class="mb-3">
+                <input type="text" name="username" class="form-control" placeholder="Username" required>
+            </div>
+
+            <div class="mb-3 input-group">
+                <input type="password" name="password" class="form-control" placeholder="Password" required>
+            </div>
+
+            <button type="submit" class="btn btn-custom">Login</button>
+        </form>
+
+        <p class="text-centre text-muted mt-3">
+            Don't have an account? <a href="Registration.jsp">Create Account</a>
+        </p>
+    </div>
+
+</body>
+</html>
+
+==========================
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+String username = (String) session.getAttribute("username");
+
+if(username == null){
+    response.sendRedirect("Login.jsp");
+    return;
+}
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+<style>
+    body{
+        min-height: 100vh;
+        background-image: url(Images/background2.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card-box{
+        background: #fff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
+        width: 400px;
+        text-align: center;
+    }
+
+    .btn-custom{
+        background: linear-gradient(to right,#00c6ff,#0072ff);
+        color: white;
+        border: none;
+        border-radius: 25px;
+        font-weight: bold;
+        padding: 10px;
+        width: 100%;
+        margin-top: 15px;
+    }
+    .btn-custom:hover{
+        opacity: 0.9;
+    }
+</style>
+</head>
+<body>
+
+<div class="card-box">
+    <h2>Welcome, <span style="color:#007bff;"><%= username %></span></h2>
+    <p class="mt-3 text-muted">You have successfully logged in.</p>
+
+    <a href="Profile.jsp">
+        <button class="btn-custom">View Profile</button>
+    </a>
+
+    <a href="logout.jsp">
+        <button class="btn-custom mt-2" style="background:#ff4b5c;">Logout</button>
+    </a>
+</div>
+
+</body>
+</html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
+
+<%
+String username = (String) session.getAttribute("username");
+
+if(username == null){
+    response.sendRedirect("Login.jsp");
+    return;
+}
+
+String fullname = "";
+String email = "";
+
+// Fetch user details
+try{
+    Class.forName("com.mysql.cj.jdbc.Driver");
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/regdb", "root", "root");
+
+    PreparedStatement ps = con.prepareStatement("SELECT * FROM reg WHERE username=?");
+    ps.setString(1, username);
+    ResultSet rs = ps.executeQuery();
+
+    if(rs.next()){
+        fullname = rs.getString("fullname");
+        email = rs.getString("email");
+    }
+
+} catch(Exception e){
+    e.printStackTrace();
+}
+%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Profile</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+<style>
+    body{
+        min-height: 100vh;
+        background-image: url(Images/background2.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .profile-card{
+        background: #fff;
+        padding: 30px;
+        width: 400px;
+        border-radius: 10px;
+        box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .profile-card h3{
+        color:#007bff;
+        text-align:center;
+    }
+
+    .detail-box{
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        font-size: 16px;
+    }
+
+    .btn-custom{
+        background: linear-gradient(to right,#00c6ff,#0072ff);
+        color: white;
+        border: none;
+        border-radius: 25px;
+        font-weight: bold;
+        padding: 10px;
+        width: 100%;
+        margin-top: 15px;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="profile-card">
+
+    <h3>User Profile</h3>
+
+    <div class="detail-box"><b>Full Name:</b> <%= fullname %></div>
+    <div class="detail-box"><b>Email:</b> <%= email %></div>
+    <div class="detail-box"><b>Username:</b> <%= username %></div>
+
+    <a href="Dashboard.jsp">
+        <button class="btn-custom">Back to Dashboard</button>
+    </a>
+
+</div>
+
+</body>
+</html>
+=====================
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Logout</title>
+</head>
+<body>
+
+<%
+session.invalidate();
+response.sendRedirect("Login.jsp");
+%>
+
+</body>
+</html>
+
+
+=========================
