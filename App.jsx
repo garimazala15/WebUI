@@ -21,6 +21,7 @@ const App = () => {
 
   return (
     <div>
+      <p className='bg-bule-500 text-amber-50'></p>
       <h1 style={{color:"red"}}>Name: {name}</h1>
       <h2 style={{backgroundcolor:"green"}}>Age: {age}</h2>
       <h2 style={design}>Mobile:{mobile}</h2>
