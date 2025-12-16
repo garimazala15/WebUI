@@ -1,0 +1,82 @@
+import React, { useState } from "react";
+import { Button, Checkbox, Label, TextInput,Alert,Banner } from "flowbite-react";
+
+
+
+const App=()=>{
+
+  const [email,setEmail]=useState("")
+  const [password,setPassword]=useState("")
+  const [repeat,setRepeat]=useState("")
+
+  const [data,setData]=useState({})
+
+
+  const formSubmit=(e)=>{
+
+    e.preventDefault()
+
+    const obj={email,password,repeat}
+
+    setData(obj)
+
+    console.log(obj)
+  }
+
+
+  return(
+<>
+<form className="flex max-w-md flex-col gap-4" onSubmit={formSubmit}>
+      <div>
+        <div className="mb-2 block">
+          <Label >Your email</Label>
+        </div>
+        <TextInput  type="email"  required shadow onChange={(e)=>setEmail(e.target.value)} />
+      </div>
+      <div>
+        <div className="mb-2 block">
+          <Label >Your password</Label>
+        </div>
+        <TextInput  type="password" required shadow onChange={(e)=>setPassword(e.target.value)} />
+      </div>
+      <div>
+        <div className="mb-2 block">
+          <Label >Repeat password</Label>
+        </div>
+        <TextInput type="password" required shadow  onChange={(e)=>setRepeat(e.target.value)}/>
+      </div>
+      
+      <Button type="submit">Register new account</Button>
+    </form>
+
+   {data.repeat ?<>
+    <Banner>
+      <div className="flex w-full justify-between border-t border-gray-200 bg-gray-50 p-4 dark:border-gray-600 dark:bg-gray-700">
+        <div className="mx-auto flex items-center">
+          <p className="flex items-center text-sm font-normal text-gray-500 dark:text-gray-400">
+            <span className="mr-3 inline-flex h-6 w-6 items-center justify-center rounded-full bg-gray-200 p-1 dark:bg-gray-600">
+            </span>
+            <span className="[&_p]:inline">
+              Data Saved To Console!
+            </span>
+          </p>
+        </div>
+        
+      </div>
+    </Banner>
+</>:
+<>
+   <Alert color="info">
+      <span className="font-medium">please enter Email and password!</span> 
+    </Alert>
+</>
+}
+     
+
+</>
+
+
+    
+  )
+}
+export default App;
